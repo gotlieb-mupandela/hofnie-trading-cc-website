@@ -1,0 +1,25 @@
+{
+  "name": "hofnie-trading-cc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Hofnie Trading CC, a construction and renovation firm in Windhoek and northern Namibia.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.2"
+  }
+}
