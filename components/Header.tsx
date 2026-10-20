@@ -25,13 +25,10 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="site-header">
-      <div className="bar wrap">
-        <Link className="logo-link" href="/">
-          <span className="logo">
-            <span className="logo-name">Hofnie</span>
-            <span className="logo-legal">Trading CC</span>
-          </span>
+    <header className={open ? "site-header is-open" : "site-header"}>
+      <div className="bar">
+        <Link className="wordmark" href="/">
+          Hofnie
         </Link>
         <button
           className="menu-button"
@@ -44,12 +41,13 @@ export function Header() {
           <span aria-hidden="true" className="menu-icon">
             <i />
             <i />
+            <i />
           </span>
         </button>
         <nav id="site-nav" className={open ? "site-nav is-open" : "site-nav"} aria-label="Primary">
           <ul>
-            {nav.map((item) => {
-              const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            {nav.filter((item) => item.href !== "/").map((item) => {
+              const active = pathname.startsWith(item.href);
               return (
                 <li key={item.href}>
                   <Link href={item.href} aria-current={active ? "page" : undefined}>

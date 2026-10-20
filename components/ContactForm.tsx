@@ -162,7 +162,7 @@ function ContactFormFields({
         <textarea id="message" name="message" rows={6} aria-invalid={Boolean(errors.message)} required />
         {errors.message ? <p className="field-error">{errors.message}</p> : null}
       </div>
-      <button className="button button-primary" type="submit">
+      <button className="pill" type="submit">
         Email this enquiry
       </button>
     </form>

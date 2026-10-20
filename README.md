@@ -18,7 +18,7 @@ The site is a Next.js app and is ready to deploy on Vercel.
 - 081 781 7312 (`tel:+264817817312`, WhatsApp `https://wa.me/264817817312`)
 - erastusjohn36@gmail.com
 
-The street address is still a placeholder. Named projects, client names, and years are not invented. Photographs are Unsplash stock and are labelled as such. They are not Hofnie Trading CC projects.
+The street address is still a placeholder. Named projects, client names, and years are not invented. Photographs are Unsplash stock and are labelled as such. They are not Hofnie Trading CC projects. The layout uses full-viewport image sections, a thin top bar, and a black and white palette. It does not use another company's name, logo, or photographs.
 
 The enquiry form opens the visitor's email app with the message addressed to the company. It does not deliver mail by itself.
 

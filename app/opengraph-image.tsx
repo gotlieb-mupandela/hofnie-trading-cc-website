@@ -15,26 +15,25 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f4f1eb",
-          color: "#1a1917",
+          background: "#000000",
+          color: "#ffffff",
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 24, letterSpacing: 4 }}>
-          HOFNIE TRADING CC
-        </div>
+        <div style={{ display: "flex", fontSize: 22, letterSpacing: 8 }}>HOFNIE</div>
         <div
           style={{
             display: "flex",
-            fontSize: 68,
+            fontSize: 64,
             lineHeight: 1.02,
-            letterSpacing: -2,
+            letterSpacing: -1,
             maxWidth: 900,
+            fontWeight: 400,
           }}
         >
           Construction and renovation in Windhoek and northern Namibia
         </div>
-        <div style={{ display: "flex", fontSize: 26 }}>
+        <div style={{ display: "flex", fontSize: 24, letterSpacing: 2 }}>
           Windhoek, Ondangwa, Oshakati, Ongwediva
         </div>
       </div>

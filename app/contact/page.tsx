@@ -2,7 +2,6 @@ import { Suspense } from "react";
 
 import { ContactForm } from "@/components/ContactForm";
 import { ContactMethods } from "@/components/ContactMethods";
-import { PageHeader } from "@/components/PageHeader";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -14,22 +13,17 @@ export const metadata = pageMetadata({
 
 export default function ContactPage() {
   return (
-    <>
-      <PageHeader
-        title="Contact."
-        lede="Call, WhatsApp, or email us about work in Windhoek, Ondangwa, Oshakati, and Ongwediva."
-      />
-      <section className="section">
-        <div className="wrap contact-layout">
-          <div>
-            <h2>Reach us</h2>
-            <ContactMethods />
-          </div>
+    <section className="sheet">
+      <div className="wrap">
+        <h1>Contact</h1>
+        <p className="sub">Call, WhatsApp, or email us about work in Windhoek, Ondangwa, Oshakati, and Ongwediva.</p>
+        <div className="contact-layout">
+          <ContactMethods />
           <Suspense fallback={<p className="form-fallback">Loading the enquiry form.</p>}>
             <ContactForm />
           </Suspense>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { PageHeader } from "@/components/PageHeader";
+import { Panel } from "@/components/Panel";
+import { stockImages } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/site";
 
@@ -14,25 +15,28 @@ export const metadata = pageMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        title="Services."
-        lede="New building work, changes to existing property, repairs, finishes, and outside work in Windhoek, Ondangwa, Oshakati, and Ongwediva."
+      <Panel
+        heading="h1"
+        priority
+        image={stockImages[1]}
+        title="Services"
+        text="New building work, renovation, repairs, finishes, and outside work in four towns."
+        actions={[{ href: "/contact", label: "Contact" }]}
       />
-      <section className="section">
+      <section className="sheet-block">
         <div className="wrap">
-          {services.map((service) => (
-            <article key={service.id} id={service.id} className="service-block">
-              <p className="service-index">{service.number}</p>
-              <div>
-                <h2>{service.title}</h2>
-                <p>{service.summary}</p>
-                <p>{service.body[0]}</p>
-                <Link className="text-link" href={`/contact?service=${service.id}#enquiry`}>
-                  Contact
+          <ul className="ledger">
+            {services.map((service) => (
+              <li key={service.id} id={service.id}>
+                <Link href={`/contact?service=${service.id}#enquiry`}>
+                  <span className="index">{service.number}</span>
+                  <strong>{service.title}</strong>
+                  <span>{service.summary}</span>
+                  <span className="text-link">Contact</span>
                 </Link>
-              </div>
-            </article>
-          ))}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

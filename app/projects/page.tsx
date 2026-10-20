@@ -1,5 +1,4 @@
-import { PageHeader } from "@/components/PageHeader";
-import { StockImage } from "@/components/StockImage";
+import { Panel } from "@/components/Panel";
 import { stockImages } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 import { projectSlots } from "@/lib/site";
@@ -14,15 +13,18 @@ export const metadata = pageMetadata({
 export default function ProjectsPage() {
   return (
     <>
-      <PageHeader
-        title="Projects."
-        lede="Named jobs are not published yet. The list is reserved space for Windhoek, Ondangwa, Oshakati, and Ongwediva."
+      <Panel
+        heading="h1"
+        priority
+        image={stockImages[0]}
+        title="Projects"
+        text="Named jobs are not published yet."
+        actions={[{ href: "/contact", label: "Contact" }]}
       />
-      <section className="section">
+      <section className="sheet-block">
         <div className="wrap">
-          <StockImage src={stockImages[0].src} alt={stockImages[0].alt} />
           <p className="notice">
-            Project names, clients, and years stay as placeholders. Nothing in this list is a completed Hofnie Trading CC job.
+            The list is reserved space for Windhoek, Ondangwa, Oshakati, and Ongwediva. Nothing here is a completed Hofnie Trading CC job.
           </p>
           <ul className="slot-list">
             {projectSlots.map((slot) => (

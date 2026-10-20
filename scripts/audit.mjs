@@ -22,7 +22,7 @@ function add(issue) {
 }
 
 const browser = await chromium.launch({ headless: true });
-await mkdir("/opt/cursor/artifacts/hofnie-final", { recursive: true });
+await mkdir("/opt/cursor/artifacts/hofnie-stark", { recursive: true });
 
 for (const [vpName, width, height] of viewports) {
   const context = await browser.newContext({ viewport: { width, height } });
@@ -39,7 +39,7 @@ for (const [vpName, width, height] of viewports) {
     if (!response || response.status() >= 400) add(`${vpName} ${name} status ${response?.status()}`);
 
     await page.screenshot({
-      path: `/opt/cursor/artifacts/hofnie-final/${name}-${vpName}.png`,
+      path: `/opt/cursor/artifacts/hofnie-stark/${name}-${vpName}.png`,
       fullPage: false,
     });
 

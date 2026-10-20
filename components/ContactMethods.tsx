@@ -1,6 +1,6 @@
 import { company } from "@/lib/site";
 
-export function ContactMethods() {
+export function ContactMethods({ compact = false }: { compact?: boolean }) {
   return (
     <div className="contact-methods">
       <ul className="phone-block">
@@ -25,13 +25,15 @@ export function ContactMethods() {
       <a className="email-link" href={`mailto:${company.email}`}>
         {company.email}
       </a>
-      <p className="address-block">
-        <span className="placeholder-tag">Address to be published</span>
-        <span>{company.address.street}</span>
-        <span>
-          {company.address.locality}, {company.address.country}
-        </span>
-      </p>
+      {compact ? null : (
+        <p className="address-block">
+          <span className="address-label">Address to be published</span>
+          <span>{company.address.street}</span>
+          <span>
+            {company.address.locality}, {company.address.country}
+          </span>
+        </p>
+      )}
     </div>
   );
 }

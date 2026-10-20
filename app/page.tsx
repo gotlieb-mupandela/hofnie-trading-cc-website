@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-import { StockImage } from "@/components/StockImage";
-import { heroImage } from "@/lib/media";
+import { ContactMethods } from "@/components/ContactMethods";
+import { Panel } from "@/components/Panel";
+import { heroImage, stockImages } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
-import { serviceAreas, services } from "@/lib/site";
+import { company, serviceAreas } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Home",
@@ -15,53 +16,49 @@ export const metadata = pageMetadata({
 
 export default function HomePage() {
   return (
-    <>
-      <section className="hero">
-        <div className="wrap">
-          <div className="hero-top">
-            <div>
-              <h1>Building Namibia&apos;s future.</h1>
-              <p className="lede">
-                Construction, renovation, and other property work in Windhoek, Ondangwa, Oshakati, and Ongwediva.
-              </p>
-            </div>
-            <Link className="button" href="/contact">
-              Contact
-            </Link>
-          </div>
-          <StockImage src={heroImage.src} alt={heroImage.alt} priority />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="wrap">
-          <h2>Services</h2>
-          <p className="section-intro">Six kinds of building and property work.</p>
-          <ul className="index-list">
-            {services.map((service) => (
-              <li key={service.id}>
-                <Link href={`/services#${service.id}`}>
-                  <span>{service.number}</span>
-                  <strong>{service.title}</strong>
-                  <span>{service.summary}</span>
-                </Link>
+    <div className="snap-page">
+      <Panel
+        heading="h1"
+        priority
+        image={heroImage}
+        title="Building Namibia's future."
+        text="Construction and renovation in Windhoek, Ondangwa, Oshakati, and Ongwediva."
+        actions={[
+          { href: "/contact", label: "Contact" },
+          { href: `tel:${company.phones[0].tel}`, label: "Call", tone: "ghost" },
+        ]}
+      />
+      <Panel
+        image={stockImages[3]}
+        title="Services"
+        text="New builds, renovation, repairs, finishes, and outside work."
+        actions={[
+          { href: "/services", label: "Services" },
+          { href: "/contact", label: "Contact", tone: "ghost" },
+        ]}
+      />
+      <section className="panel panel-black">
+        <div className="panel-copy">
+          <h2>Where we work</h2>
+          <ul className="mega-list">
+            {serviceAreas.map((area) => (
+              <li key={area.name}>
+                <Link href={`/contact?town=${encodeURIComponent(area.name)}#enquiry`}>{area.name}</Link>
               </li>
             ))}
           </ul>
         </div>
       </section>
-
-      <section className="section">
-        <div className="wrap">
-          <h2>Where we work</h2>
-          <p className="section-intro">These are the towns named on this site.</p>
-          <ul className="town-list">
-            {serviceAreas.map((area) => (
-              <li key={area.name}>{area.name}</li>
-            ))}
-          </ul>
+      <section className="panel panel-black">
+        <div className="panel-copy">
+          <h2>Contact</h2>
+          <p className="sub">Call, WhatsApp, or email.</p>
+          <ContactMethods compact />
+          <Link className="pill" href="/contact#enquiry">
+            Write to us
+          </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

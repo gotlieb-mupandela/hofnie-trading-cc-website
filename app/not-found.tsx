@@ -10,13 +10,13 @@ export const metadata = pageMetadata({
 
 export default function NotFound() {
   return (
-    <section className="page-header">
+    <section className="sheet">
       <div className="wrap">
-        <h1>This page is not on the site.</h1>
-        <p className="lede">The link may be out of date.</p>
+        <h1>Not found</h1>
+        <p className="sub">This page is not on the Hofnie Trading CC site.</p>
         <p className="actions">
-          <Link className="button" href="/">
-            Back to home
+          <Link className="pill" href="/">
+            Home
           </Link>
         </p>
       </div>
