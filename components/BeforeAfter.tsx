@@ -1,41 +1,58 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
-import { StudyDrawing } from "@/components/Drawings";
+import { compareImages } from "@/lib/media";
 
 export function BeforeAfter() {
-  const [showAfter, setShowAfter] = useState(false);
+  const [position, setPosition] = useState(56);
 
   return (
     <section className="section" aria-labelledby="before-after-title">
       <div className="wrap">
         <div className="section-head">
           <p className="kicker">Before and after</p>
-          <h2 id="before-after-title">Illustrated studies, until site photographs exist.</h2>
+          <h2 id="before-after-title">A slider, ready for real site photographs.</h2>
           <p className="lede">
-            The pair below is drawn for this website. It is not a before and after of a Hofnie Trading CC job, and neither frame is a photograph.
+            Drag the control to compare two frames. The pictures below are Unsplash stock, used only to show the slider. They are not a Hofnie Trading CC job.
           </p>
         </div>
-        <div className="compare">
-          <figure>
-            <StudyDrawing variant={showAfter ? "house" : "section"} />
-            <figcaption>
-              <span className="placeholder-tag">{showAfter ? "After study" : "Before study"}</span>
-              <span>{showAfter ? "A cleaner finished volume." : "An earlier, plainer building study."}</span>
-            </figcaption>
-          </figure>
-          <div className="compare-actions">
-            <button
-              type="button"
-              className="button button-secondary"
-              aria-pressed={showAfter}
-              onClick={() => setShowAfter((value) => !value)}
-            >
-              {showAfter ? "Show the before study" : "Show the after study"}
-            </button>
-            <p>Use the button to switch studies. Real project photographs will replace this block when they are supplied.</p>
+        <div className="compare-slider">
+          <div className="compare-frame">
+            <Image
+              src={compareImages.after.src}
+              alt={compareImages.after.alt}
+              fill
+              sizes="(max-width: 900px) 100vw, 1100px"
+            />
+            <div className="compare-before" style={{ width: `${position}%` }}>
+              <div className="compare-before-sizer">
+                <Image
+                  src={compareImages.before.src}
+                  alt={compareImages.before.alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 1100px"
+                />
+              </div>
+            </div>
+            <span className="compare-label compare-label-before">Stock before</span>
+            <span className="compare-label compare-label-after">Stock after</span>
+            <span className="compare-handle" style={{ left: `${position}%` }} aria-hidden="true" />
           </div>
+          <label className="compare-range">
+            <span className="sr-only">Compare the stock before and after frames</span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={position}
+              onChange={(event) => setPosition(Number(event.target.value))}
+            />
+          </label>
+          <p className="compare-note">
+            Replace these two files with Hofnie photographs when the company supplies a real before and after. Until then, treat both frames as stock.
+          </p>
         </div>
       </div>
     </section>

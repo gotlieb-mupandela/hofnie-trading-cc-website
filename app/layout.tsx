@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Fraunces, Outfit } from "next/font/google";
+import { Space_Grotesk, Syne } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,13 +9,13 @@ import { company, siteUrl } from "@/lib/site";
 
 import "./globals.css";
 
-const fraunces = Fraunces({
+const display = Syne({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-display",
   display: "swap",
 });
 
-const outfit = Outfit({
+const grotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -50,14 +50,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e3328",
+  themeColor: "#07080b",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${display.variable} ${grotesk.variable}`}>
       <body>
         <a className="skip-link" href="#content">
           Skip to content

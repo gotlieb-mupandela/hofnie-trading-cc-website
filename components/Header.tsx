@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Logo } from "@/components/Logo";
@@ -8,16 +9,13 @@ import { company, nav } from "@/lib/site";
 
 export function Header() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const open = openPath === pathname;
 
   useEffect(() => {
     if (!open) return;
     function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") setOpenPath(null);
     }
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -47,18 +45,19 @@ export function Header() {
         </ul>
       </div>
       <div className="bar wrap">
-        <a className="logo-link" href="/" aria-label="Hofnie Trading CC, home">
+        <Link className="logo-link" href="/">
           <Logo />
-        </a>
+        </Link>
         <a className="button button-primary header-quote" href="/contact#enquiry">
-          Get a quote
+          <span className="quote-long">Get a free quote</span>
+          <span className="quote-short">Quote</span>
         </a>
         <button
           className="menu-button"
           type="button"
           aria-expanded={open}
           aria-controls="site-nav"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpenPath(open ? null : pathname)}
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           <span aria-hidden="true" className="menu-icon">
@@ -97,7 +96,7 @@ export function Header() {
               <a href={`mailto:${company.email}`}>{company.email}</a>
             </p>
             <a className="button button-primary" href="/contact#enquiry">
-              Get a quote
+              Get a free quote
             </a>
           </div>
         </nav>

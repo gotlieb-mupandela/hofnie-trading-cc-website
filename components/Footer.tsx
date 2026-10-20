@@ -40,6 +40,7 @@ export function Footer() {
       </div>
       <div className="wrap footer-base">
         <p>© {new Date().getFullYear()} Hofnie Trading CC. Namibia.</p>
+        <p>Atmosphere photographs are Unsplash stock. They are not Hofnie Trading CC projects.</p>
       </div>
     </footer>
   );

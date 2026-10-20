@@ -1,6 +1,6 @@
 import { EnquiryBand } from "@/components/EnquiryBand";
 import { PageHeader } from "@/components/PageHeader";
-import { StudyDrawing } from "@/components/Drawings";
+import { ProjectCard } from "@/components/ProjectCard";
 import { projectSlots, serviceAreas } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -23,9 +23,7 @@ export default function ProjectsPage() {
         <div className="wrap">
           <div className="notice notice-inline">
             <p>
-              These studies were drawn for this website. They are not pictures of
-              real sites. Project names, clients, towns, and years are marked as
-              placeholders so they are not mistaken for completed work.
+              Photographs in this grid are Unsplash stock, shown so the page is not empty. They are not Hofnie sites. Project names, clients, and years stay as placeholders.
             </p>
           </div>
           <div className="town-groups">
@@ -40,27 +38,7 @@ export default function ProjectsPage() {
                   <ul className="project-grid">
                     {slots.map((slot) => (
                       <li key={slot.id}>
-                        <article className="project-card">
-                          <StudyDrawing variant={slot.variant} />
-                          <p className="placeholder-tag">Placeholder, not a completed project</p>
-                          <p className="project-kind">{slot.kind}</p>
-                          <h3>{slot.title}</h3>
-                          <dl>
-                            <div>
-                              <dt>Site</dt>
-                              <dd>{slot.location}</dd>
-                            </div>
-                            <div>
-                              <dt>Client</dt>
-                              <dd>{slot.client}</dd>
-                            </div>
-                            <div>
-                              <dt>Year</dt>
-                              <dd>{slot.year}</dd>
-                            </div>
-                          </dl>
-                          <p>{slot.summary}</p>
-                        </article>
+                        <ProjectCard slot={slot} index={projectSlots.findIndex((item) => item.id === slot.id)} />
                       </li>
                     ))}
                   </ul>

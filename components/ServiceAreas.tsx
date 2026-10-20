@@ -1,3 +1,4 @@
+import { TownMap } from "@/components/TownMap";
 import { serviceAreas } from "@/lib/site";
 
 const northern = serviceAreas.filter((area) => area.group === "Northern Namibia");
@@ -19,12 +20,7 @@ export function ServiceAreas({
           <p className="lede">{intro}</p>
         </div>
         <div className="areas-layout">
-          <div className="areas-diagram" aria-hidden="true">
-            <span>North</span>
-            <i />
-            <span>Windhoek</span>
-            <small>Schematic only. Not to scale.</small>
-          </div>
+          <TownMap />
           <div className="areas-groups">
             <div>
               <h3>Northern Namibia</h3>

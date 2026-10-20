@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -17,9 +19,9 @@ export default function NotFound() {
           an enquiry.
         </p>
         <div className="cluster">
-          <a className="button button-primary" href="/">
+          <Link className="button button-primary" href="/">
             Back to home
-          </a>
+          </Link>
           <a className="button button-secondary" href="/contact">
             Contact
           </a>

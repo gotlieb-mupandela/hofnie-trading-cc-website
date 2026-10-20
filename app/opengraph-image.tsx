@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#1e3328",
-          color: "#f3eee6",
+          background: "#07080b",
+          color: "#f4f1ea",
           padding: "72px",
         }}
       >
@@ -33,7 +33,7 @@ export default function OpenGraphImage() {
         >
           Construction and renovation in Windhoek and northern Namibia
         </div>
-        <div style={{ display: "flex", fontSize: 28, color: "#e7d3a1" }}>
+        <div style={{ display: "flex", fontSize: 28, color: "#ffb15a" }}>
           Windhoek · Ondangwa · Oshakati · Ongwediva
         </div>
       </div>

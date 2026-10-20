@@ -12,7 +12,7 @@ export function EnquiryBand() {
           </p>
           <div className="cluster">
             <a className="button button-light" href="/contact#enquiry">
-              Get a quote
+              Get a free quote
             </a>
             <a
               className="button button-whatsapp"
