@@ -1,5 +1,6 @@
+import Link from "next/link";
+
 import { ContactMethods } from "@/components/ContactMethods";
-import { Logo } from "@/components/Logo";
 import { nav, serviceAreas } from "@/lib/site";
 
 export function Footer() {
@@ -7,40 +8,42 @@ export function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-grid">
         <div>
-          <Logo />
-          <p>
-            Construction, renovation, and other property-related work in
-            Windhoek, Ondangwa, Oshakati, and Ongwediva.
+          <p className="logo">
+            <span className="logo-name">Hofnie</span>
+            <span className="logo-legal">Trading CC</span>
+          </p>
+          <p className="footer-note">
+            Construction and renovation in Windhoek, Ondangwa, Oshakati, and Ongwediva.
           </p>
         </div>
         <div>
-          <h2>Visit</h2>
+          <h2>Pages</h2>
           <ul>
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h2>Service areas</h2>
+          <h2>Towns</h2>
           <ul>
             {serviceAreas.map((area) => (
               <li key={area.name}>
-                <a href={`/contact?town=${encodeURIComponent(area.name)}#enquiry`}>{area.name}</a>
+                <Link href={`/contact?town=${encodeURIComponent(area.name)}#enquiry`}>{area.name}</Link>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div className="footer-contact">
           <h2>Contact</h2>
           <ContactMethods />
         </div>
       </div>
       <div className="wrap footer-base">
         <p>© {new Date().getFullYear()} Hofnie Trading CC. Namibia.</p>
-        <p>Atmosphere photographs are Unsplash stock. They are not Hofnie Trading CC projects.</p>
+        <p>Photographs are Unsplash stock. They are not Hofnie Trading CC projects.</p>
       </div>
     </footer>
   );

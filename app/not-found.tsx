@@ -11,21 +11,14 @@ export const metadata = pageMetadata({
 export default function NotFound() {
   return (
     <section className="page-header">
-      <div className="wrap page-header-inner">
-        <p className="kicker">404</p>
-        <h1>This page is not on the Hofnie Trading CC site.</h1>
-        <p className="lede">
-          The link may be out of date. You can go back to the home page or send
-          an enquiry.
-        </p>
-        <div className="cluster">
-          <Link className="button button-primary" href="/">
+      <div className="wrap">
+        <h1>This page is not on the site.</h1>
+        <p className="lede">The link may be out of date.</p>
+        <p className="actions">
+          <Link className="button" href="/">
             Back to home
           </Link>
-          <a className="button button-secondary" href="/contact">
-            Contact
-          </a>
-        </div>
+        </p>
       </div>
     </section>
   );

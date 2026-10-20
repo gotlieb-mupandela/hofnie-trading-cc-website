@@ -89,7 +89,7 @@ function ContactFormFields({
   return (
     <form className="enquiry-form" id="enquiry" onSubmit={onSubmit} noValidate>
       <div className="form-head">
-        <h2>Enquiry form</h2>
+        <h2>Write to us</h2>
         <p>{helper}</p>
       </div>
       {status ? (

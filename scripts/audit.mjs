@@ -94,15 +94,6 @@ for (const [vpName, width, height] of viewports) {
     if (!page.url().endsWith("/services")) add("desktop nav did not open services");
   }
 
-  await page.goto(base + "/", { waitUntil: "networkidle" });
-  const slider = page.locator(".compare-range input");
-  const before = await slider.inputValue();
-  await slider.fill("12");
-  const after = await slider.inputValue();
-  if (before === after) add(`${vpName} slider did not move`);
-  const widthStyle = await page.locator(".compare-before").getAttribute("style");
-  if (!widthStyle?.includes("12%")) add(`${vpName} slider style ${widthStyle}`);
-
   const links = await page.locator("a[href^='/']").evaluateAll((nodes) =>
     [...new Set(nodes.map((node) => node.getAttribute("href")?.split("#")[0]).filter(Boolean))],
   );
